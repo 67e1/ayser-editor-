@@ -739,13 +739,13 @@
         <div class="video-ba-wrapper" id="videoBAWrapper">
             <div class="video-layer before-layer">
                 <video id="videoBefore" autoplay loop muted playsinline>
-                    <source src="g:\montaj\habl.mp4" type="video/mp4">
+                    <source src="./habl.mp4" type="video/mp4">
                 </video>
             </div>
 
             <div class="video-layer after-layer" id="afterLayer">
                 <video id="videoAfter" autoplay loop muted playsinline>
-                    <source src="g:\montaj\chapter 2 intro.mp4" type="video/mp4">
+                    <source src="./chapter%202%20intro.mp4" type="video/mp4">
                 </video>
             </div>
 
@@ -1267,9 +1267,25 @@
         const modalVideoPlayer = document.getElementById('modalVideoPlayer');
         const closeModalBtn = document.getElementById('closeModal');
 
+        function normalizeVideoPath(rawPath) {
+            if (!rawPath || rawPath.trim() === '') return '';
+
+            let cleaned = rawPath.trim().replace(/\\/g, '/');
+
+            if (/^[A-Za-z]:\//.test(cleaned)) {
+                cleaned = cleaned.replace(/^[A-Za-z]:\/.*?\/montaj\//i, './');
+            }
+
+            if (!cleaned.startsWith('./') && !cleaned.startsWith('/') && !/^https?:\/\//i.test(cleaned)) {
+                cleaned = `./${cleaned}`;
+            }
+
+            return encodeURI(cleaned);
+        }
+
         document.querySelectorAll('.portfolio-item').forEach(item => {
             item.addEventListener('click', () => {
-                const videoSrc = item.getAttribute('data-video');
+                const videoSrc = normalizeVideoPath(item.getAttribute('data-video'));
                 if (videoSrc && videoSrc.trim() !== '') {
                     modalVideoPlayer.src = videoSrc;
                     videoModal.classList.add('active');
