@@ -173,7 +173,7 @@
 
         /* About Section */
         .about-section {
-            padding: 80px 5%;
+            padding: 80px 5% 40px;
             background: rgba(255, 255, 255, 0.015);
         }
 
@@ -245,6 +245,45 @@
             font-size: 0.85rem;
             font-weight: 600;
             direction: ltr;
+        }
+
+        /* Origin Story Section (أول فيديو - من هنا بدأت القصة) */
+        .origin-section {
+            padding: 50px 5% 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .origin-video-card {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(138, 43, 226, 0.15);
+            transition: var(--transition);
+        }
+
+        .origin-video-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 35px rgba(0, 242, 254, 0.2);
+        }
+
+        .origin-video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #000;
+        }
+
+        .origin-video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* Video Before/After Section */
@@ -359,12 +398,19 @@
         /* Section Header */
         .section-header {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 35px;
         }
 
         .section-header h2 {
             font-size: 2.2rem;
             margin-bottom: 10px;
+        }
+
+        .section-header h2 span {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .section-header p {
@@ -444,11 +490,12 @@
             transform: scale(1.08);
         }
 
+        /* زر التشغيل */
         .play-icon {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(0.75);
             width: 55px;
             height: 55px;
             background: rgba(138, 43, 226, 0.85);
@@ -458,14 +505,18 @@
             align-items: center;
             color: white;
             font-size: 1.3rem;
-            transition: var(--transition);
+            transition: all 0.35s ease;
             backdrop-filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
         }
 
         .portfolio-item:hover .play-icon {
+            opacity: 1;
             background: var(--accent);
             color: #000;
             transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
         }
 
         .item-info {
@@ -689,6 +740,7 @@
         </div>
         <nav>
             <a href="#about">من أنا</a>
+            <a href="#origin">بداية القصة</a>
             <a href="#compare">Coloring</a>
             <a href="#portfolio">معرض الأعمال</a>
             <a href="#services">الخدمات</a>
@@ -710,11 +762,19 @@
     <section class="about-section" id="about">
         <div class="about-card">
             <div class="about-img-container">
-                <img src="profile.jpg" alt="صورة المونتير" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80'">
+                <img src="ph/1A3BF97B-FDF4-4C46-BDB0-E97DCF5DC677.PNG" alt="صورة المونتير" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80'">
             </div>
             <div class="about-content">
-                <h2>خبرات المونتاج والتعديل</h2>
-                <p>أقدم خدمات مونتاج احترافية متكاملة للمصممين والشركات وصناع المحتوى بمختلف التخصصات البصرية:</p>
+                <h2>ايسر ازهر</h2>
+                <p>
+                     <div> العمر : ٢٤ سنة </div>
+                     <div> الشهادة الاكاديمية : بكالوريوس صيدلة </div>
+                     <div> اللغات : عربي - انكليزي</div>
+                     <div> خبرة 12 سنة في برامج التعديل والتصميم الاحترافية </div>
+                     <div> يوتيوبر سابق وصانع فيديوهات سوشيال ميديا </div>
+                     <div> اعمل حالياً بشكل مستقل مع عملاء خاصين حيث اقدم تجربة مميزة لكل منهم </div>
+                     <div> واطمح لانشاء مشروعي الخاص بالانتاج</div>
+                </p>
                 <div class="about-skills-badges">
                     <span class="badge">coloring</span>
                     <span class="badge">promotional-reels</span>
@@ -729,11 +789,28 @@
         </div>
     </section>
 
+    <!-- Origin Story Section (من هنا بدأت القصة) -->
+    <section class="origin-section" id="origin">
+        <div class="section-header">
+            <h2>من هنا <span>بدأت القصة</span></h2>
+            <p>أول فيديو قمت بتعديله على الهاتف بأستخدام برنامج ivideoshow في سنه 2014</p>
+        </div>
+        
+        <div class="origin-video-card">
+            <div class="origin-video-wrapper">
+               <video autoplay loop muted playsinline controls>
+              <source src="first video.mp4" type="video/mp4">
+              متصفحك لا يدعم تشغيل هذا الفيديو.
+             </video>
+            </div>
+        </div>
+    </section>
+
     <!-- Video Before/After Section -->
     <section class="before-after-section" id="compare">
         <div class="section-header">
-            <h2>مقارنة ألوان الفيديو (Coloring)</h2>
-            <p>حرك السهم يميناً ويساراً لمشاهدة تأثير التلوين الاحترافي على المشاهد</p>
+            <h2>مقارنة</h2>
+            <p>حرك السهم يميناً ويساراً لمشاهدة نتيجة التعديل</p>
         </div>
         
         <div class="video-ba-wrapper" id="videoBAWrapper">
@@ -784,342 +861,173 @@
 
         <div class="portfolio-grid">
             
-            <!-- ==================== 1. COLORING (10 فيديوهات) ==================== -->
-            <div class="portfolio-item" data-category="coloring" data-featured="true" data-video="g:\montaj\commercia-advertising\Al-Anwar 1.mp4">
-                <div class="thumb-container"><img src="thumb_coloring1.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 1 (رئيسي)</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="g:\montaj\commercia-advertising\al-anwar 2.mp4">
-                <div class="thumb-container"><img src="thumb_coloring2.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 2</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="g:\montaj\commercia-advertising\al-anwar 10.mp4">
-                <div class="thumb-container"><img src="thumb_coloring3.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 3</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="g:\montaj\commercia-advertising\babylonian light 2.mp4">
-                <div class="thumb-container"><img src="thumb_coloring4.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 4</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="g:\montaj\commercia-advertising\kas 2.mp4">
-                <div class="thumb-container"><img src="thumb_coloring5.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 5</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="g:\montaj\commercia-advertising\kinder bueno.mp4">
-                <div class="thumb-container"><img src="thumb_coloring6.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 6</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="g:\montaj\commercia-advertising\sneakers.mp4">
-                <div class="thumb-container"><img src="thumb_coloring7.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 7</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="coloring8.mp4">
-                <div class="thumb-container"><img src="thumb_coloring8.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 8</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="coloring9.mp4">
-                <div class="thumb-container"><img src="thumb_coloring9.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="coloring" data-video="coloring10.mp4">
-                <div class="thumb-container"><img src="thumb_coloring10.jpg" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 10</h3></div>
+            <!-- 1. COLORING -->
+            <div class="portfolio-item" data-category="coloring" data-featured="true" data-video="coloring/family center.mp4">
+                <div class="thumb-container"><img src="ph/D815A8E9-E02B-4B8D-8A8D-2D027C1B9968.PNG" alt="coloring" onerror="this.src='https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">coloring</span><h3 class="item-title">تلوين سينمائي - فيديو 1 </h3></div>
             </div>
 
-            <!-- ==================== 2. PROMOTIONAL-REELS (10 فيديوهات) ==================== -->
+            <!-- 2. PROMOTIONAL-REELS -->
             <div class="portfolio-item" data-category="promotional-reels" data-featured="true" data-video="g:\montaj\reels\babil light 3.mp4">
-                <div class="thumb-container"><img src="thumb_reels1.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/9AE956D1-2DA6-4CB7-9B87-80AFED9D3C31.PNG" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ترويجي - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="promotional-reels" data-video="g:\montaj\reels\Madeena.mp4">
-                <div class="thumb-container"><img src="thumb_reels2.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 2</h3></div>
+                <div class="thumb-container"><img src="ph/9AE956D1-2DA6-4CB7-9B87-80AFED9D3C31.PNG" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ترويجي - فيديو 2</h3></div>
             </div>
             <div class="portfolio-item" data-category="promotional-reels" data-video="reels3.mp4">
-                <div class="thumb-container"><img src="thumb_reels3.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 3</h3></div>
+                <div class="thumb-container"><img src="ph/9AE956D1-2DA6-4CB7-9B87-80AFED9D3C31.PNG" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ترويجي - فيديو 3</h3></div>
             </div>
             <div class="portfolio-item" data-category="promotional-reels" data-video="g:\montaj\reels\OROK.mp4">
-                <div class="thumb-container"><img src="thumb_reels4.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 4</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="promotional-reels" data-video="reels5.mp4">
-                <div class="thumb-container"><img src="thumb_reels5.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 5</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="promotional-reels" data-video="reels6.mp4">
-                <div class="thumb-container"><img src="thumb_reels6.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 6</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="promotional-reels" data-video="reels7.mp4">
-                <div class="thumb-container"><img src="thumb_reels7.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 7</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="promotional-reels" data-video="reels8.mp4">
-                <div class="thumb-container"><img src="thumb_reels8.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 8</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="promotional-reels" data-video="reels9.mp4">
-                <div class="thumb-container"><img src="thumb_reels9.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="promotional-reels" data-video="reels10.mp4">
-                <div class="thumb-container"><img src="thumb_reels10.jpg" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ريلز - فيديو 10</h3></div>
+                <div class="thumb-container"><img src="ph/9AE956D1-2DA6-4CB7-9B87-80AFED9D3C31.PNG" alt="promotional-reels" onerror="this.src='https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">promotional-reels</span><h3 class="item-title">فيديو ترويجي - فيديو 4</h3></div>
             </div>
 
-            <!-- ==================== 3. COMMERCIAL/ADVERTISING (10 فيديوهات) ==================== -->
+            <!-- 3. COMMERCIAL/ADVERTISING -->
             <div class="portfolio-item" data-category="commercial-advertising" data-featured="true" data-video="g:\montaj\commercia-advertising\Al-Anwar 1.mp4">
-                <div class="thumb-container"><img src="thumb_comm1.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="commercial-advertising" data-video="g:\montaj\commercia-advertising\al-anwar 2.mp4">
-                <div class="thumb-container"><img src="thumb_comm2.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 2</h3></div>
             </div>
             <div class="portfolio-item" data-category="commercial-advertising" data-video="g:\montaj\commercia-advertising\al-anwar 10.mp4">
-                <div class="thumb-container"><img src="thumb_comm3.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 3</h3></div>
             </div>
             <div class="portfolio-item" data-category="commercial-advertising" data-video="g:\montaj\commercia-advertising\babylonian light 2.mp4">
-                <div class="thumb-container"><img src="thumb_comm4.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 4</h3></div>
             </div>
             <div class="portfolio-item" data-category="commercial-advertising" data-video="g:\montaj\commercia-advertising\kas 2.mp4">
-                <div class="thumb-container"><img src="thumb_comm5.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 5</h3></div>
             </div>
             <div class="portfolio-item" data-category="commercial-advertising" data-video="g:\montaj\commercia-advertising\kinder bueno.mp4">
-                <div class="thumb-container"><img src="thumb_comm6.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 6</h3></div>
             </div>
             <div class="portfolio-item" data-category="commercial-advertising" data-video="g:\montaj\commercia-advertising\sneakers.mp4">
-                <div class="thumb-container"><img src="thumb_comm7.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/56B21514-2CF5-4970-B619-92E2F6022849.PNG" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 7</h3></div>
             </div>
-            <div class="portfolio-item" data-category="commercial-advertising" data-video="comm8.mp4">
-                <div class="thumb-container"><img src="thumb_comm8.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 8</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="commercial-advertising" data-video="comm9.mp4">
-                <div class="thumb-container"><img src="thumb_comm9.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="commercial-advertising" data-video="comm10.mp4">
-                <div class="thumb-container"><img src="thumb_comm10.jpg" alt="commercial" onerror="this.src='https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">commercial/advertising</span><h3 class="item-title">إعلان تجاري - فيديو 10</h3></div>
-            </div>
-
-            <!-- ==================== 4. SPEED RAMP (10 فيديوهات) ==================== -->
+            
+            <!-- 4. SPEED RAMP -->
             <div class="portfolio-item" data-category="speed-ramp" data-featured="true" data-video="g:\montaj\speed ramp\11_2.mp4">
-                <div class="thumb-container"><img src="thumb_speed1.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/FC7D9156-855B-4F9F-BA33-A14AB1BF627B.PNG" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="speed-ramp" data-video="g:\montaj\speed ramp\al-umraa.mp4">
-                <div class="thumb-container"><img src="thumb_speed2.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/FC7D9156-855B-4F9F-BA33-A14AB1BF627B.PNG" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 2</h3></div>
             </div>
             <div class="portfolio-item" data-category="speed-ramp" data-video="g:\montaj\speed ramp\second try.mp4">
-                <div class="thumb-container"><img src="thumb_speed3.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/FC7D9156-855B-4F9F-BA33-A14AB1BF627B.PNG" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 3</h3></div>
             </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed4.mp4">
-                <div class="thumb-container"><img src="thumb_speed4.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 4</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed5.mp4">
-                <div class="thumb-container"><img src="thumb_speed5.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 5</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed6.mp4">
-                <div class="thumb-container"><img src="thumb_speed6.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 6</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed7.mp4">
-                <div class="thumb-container"><img src="thumb_speed7.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 7</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed8.mp4">
-                <div class="thumb-container"><img src="thumb_speed8.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 8</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed9.mp4">
-                <div class="thumb-container"><img src="thumb_speed9.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="speed-ramp" data-video="speed10.mp4">
-                <div class="thumb-container"><img src="thumb_speed10.jpg" alt="speed ramp" onerror="this.src='https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">speed ramp</span><h3 class="item-title">سبيد رامب - فيديو 10</h3></div>
-            </div>
 
-            <!-- ==================== 5. DOCUMENTS (10 فيديوهات) ==================== -->
+            <!-- 5. DOCUMENTS -->
             <div class="portfolio-item" data-category="documents" data-featured="true" data-video="g:\montaj\documents\interviews .mp4">
-                <div class="thumb-container"><img src="thumb_doc1.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/854F865B-968F-4530-B2A1-B3DEF6472504.PNG" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="documents" data-video="g:\montaj\documents\مشية.mp4">
-                <div class="thumb-container"><img src="thumb_doc2.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/854F865B-968F-4530-B2A1-B3DEF6472504.PNG" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 2</h3></div>
             </div>
-            <div class="portfolio-item" data-category="documents" data-video="doc3.mp4">
-                <div class="thumb-container"><img src="thumb_doc3.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 3</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="doc4.mp4">
-                <div class="thumb-container"><img src="thumb_doc4.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 4</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="doc5.mp4">
-                <div class="thumb-container"><img src="thumb_doc5.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 5</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="doc6.mp4">
-                <div class="thumb-container"><img src="thumb_doc6.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 6</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="doc7.mp4">
-                <div class="thumb-container"><img src="thumb_doc7.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 7</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="doc8.mp4">
-                <div class="thumb-container"><img src="thumb_doc8.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 8</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="al-arabia_1.mp4">
-                <div class="thumb-container"><img src="thumb_doc9.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="documents" data-video="hayder_cinematic_commercial.mp4">
-                <div class="thumb-container"><img src="thumb_doc10.jpg" alt="documents" onerror="this.src='https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">documents</span><h3 class="item-title">وثائقي - فيديو 10</h3></div>
-            </div>
 
-            <!-- ==================== 6. AI (10 فيديوهات) ==================== -->
+            <!-- 6. AI -->
             <div class="portfolio-item" data-category="ai" data-featured="true" data-video="g:\montaj\ai\ai ad1.mp4">
-                <div class="thumb-container"><img src="thumb_ai1.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\after.mp4">
-                <div class="thumb-container"><img src="thumb_ai2.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 2</h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\AI Paradise Final cuts.mp4">
-                <div class="thumb-container"><img src="thumb_ai3.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 3</h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\al-arabia 1.mp4">
-                <div class="thumb-container"><img src="thumb_ai4.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 4</h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\reel1.mp4">
-                <div class="thumb-container"><img src="thumb_ai5.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 5</h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\hayder cinematic commercial.mp4">
-                <div class="thumb-container"><img src="thumb_ai6.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 6</h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\Ibrahim commercial AI.mp4">
-                <div class="thumb-container"><img src="thumb_ai7.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 7</h3></div>
             </div>
             <div class="portfolio-item" data-category="ai" data-video="g:\montaj\ai\paradise ai.mp4">
-                <div class="thumb-container"><img src="thumb_ai8.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/BA481C78-B35D-4914-8AA7-CC25CF935FE9.PNG" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 8</h3></div>
             </div>
-            <div class="portfolio-item" data-category="ai" data-video="ai9.mp4">
-                <div class="thumb-container"><img src="thumb_ai9.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="ai" data-video="ai10.mp4">
-                <div class="thumb-container"><img src="thumb_ai10.jpg" alt="ai" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">ai</span><h3 class="item-title">ذكاء اصطناعي - فيديو 10</h3></div>
-            </div>
-
-            <!-- ==================== 7. MOTION GRAPHIC (10 فيديوهات) ==================== -->
+        
+            <!-- 7. MOTION GRAPHIC -->
             <div class="portfolio-item" data-category="motion-graphic" data-featured="true" data-video="g:\montaj\motion graphic\reel1.mp4">
-                <div class="thumb-container"><img src="thumb_motion1.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/E9DE113F-6B09-4435-8722-EFDC44131C84.PNG" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="motion-graphic" data-video="g:\montaj\motion graphic\reel2.mp4">
-                <div class="thumb-container"><img src="thumb_motion2.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/E9DE113F-6B09-4435-8722-EFDC44131C84.PNG" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 2</h3></div>
             </div>
             <div class="portfolio-item" data-category="motion-graphic" data-video="g:\montaj\motion graphic\reel3.mp4">
-                <div class="thumb-container"><img src="thumb_motion3.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/E9DE113F-6B09-4435-8722-EFDC44131C84.PNG" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 3</h3></div>
             </div>
             <div class="portfolio-item" data-category="motion-graphic" data-video="g:\montaj\motion graphic\reel4.mov">
-                <div class="thumb-container"><img src="thumb_motion4.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/E9DE113F-6B09-4435-8722-EFDC44131C84.PNG" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 4</h3></div>
             </div>
             <div class="portfolio-item" data-category="motion-graphic" data-video="g:\montaj\motion graphic\reel4 (2).mov">
-                <div class="thumb-container"><img src="thumb_motion5.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/E9DE113F-6B09-4435-8722-EFDC44131C84.PNG" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 5</h3></div>
             </div>
-            <div class="portfolio-item" data-category="motion-graphic" data-video="motion6.mp4">
-                <div class="thumb-container"><img src="thumb_motion6.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 6</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="motion-graphic" data-video="motion7.mp4">
-                <div class="thumb-container"><img src="thumb_motion7.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 7</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="motion-graphic" data-video="motion8.mp4">
-                <div class="thumb-container"><img src="thumb_motion8.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 8</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="motion-graphic" data-video="motion9.mp4">
-                <div class="thumb-container"><img src="thumb_motion9.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="motion-graphic" data-video="motion10.mp4">
-                <div class="thumb-container"><img src="thumb_motion10.jpg" alt="motion graphic" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">motion graphic</span><h3 class="item-title">موشن جرافيك - فيديو 10</h3></div>
-            </div>
 
-            <!-- ==================== 8. 3D (10 فيديوهات) ==================== -->
+            <!-- 8. 3D -->
             <div class="portfolio-item" data-category="3d" data-featured="true" data-video="g:\montaj\3d\hayder ai BTS.mp4">
-                <div class="thumb-container"><img src="thumb_3d_1.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 1 (رئيسي)</h3></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 1 </h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel6.mov">
-                <div class="thumb-container"><img src="thumb_3d_2.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 2</h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel8.mov">
-                <div class="thumb-container"><img src="thumb_3d_3.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 3</h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel7.mov">
-                <div class="thumb-container"><img src="thumb_3d_4.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 4</h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel9.mov">
-                <div class="thumb-container"><img src="thumb_3d_5.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 5</h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel10.mov">
-                <div class="thumb-container"><img src="thumb_3d_6.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 6</h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel12.mov">
-                <div class="thumb-container"><img src="thumb_3d_7.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 7</h3></div>
             </div>
             <div class="portfolio-item" data-category="3d" data-video="g:\montaj\3d\reel13.mov">
-                <div class="thumb-container"><img src="thumb_3d_8.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
+                <div class="thumb-container"><img src="ph/1F106625-755D-407A-A963-A6A15BA821B4.PNG" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
                 <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 8</h3></div>
             </div>
-            <div class="portfolio-item" data-category="3d" data-video="3d_9.mp4">
-                <div class="thumb-container"><img src="thumb_3d_9.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 9</h3></div>
-            </div>
-            <div class="portfolio-item" data-category="3d" data-video="3d_10.mp4">
-                <div class="thumb-container"><img src="thumb_3d_10.jpg" alt="3d" onerror="this.src='https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80'"><div class="play-icon"><i class="fa-solid fa-play"></i></div></div>
-                <div class="item-info"><span class="item-category">3d</span><h3 class="item-title">تصميم 3D - فيديو 10</h3></div>
-            </div>
-
         </div>
     </section>
 
@@ -1141,13 +1049,13 @@
                 <p>صناعة إعلانات تجارية وفيديوهات ريلز ترويجية جذابة وعالية التفاعل.</p>
             </div>
             <div class="service-card">
-                <i class="fa-solid fa-robot service-icon"></i>
-                <h3>ai & motion graphic</h3>
+                <i class="fa-solid fa-cube service-icon"></i>
+                <h3>3d & motion graphic</h3>
                 <p>صناعة مشاهد ذكاء اصطناعي وتحريك جرافيك بصري ممتاز.</p>
             </div>
             <div class="service-card">
-                <i class="fa-solid fa-cube service-icon"></i>
-                <h3>3d & documents</h3>
+                <i class="fa-solid fa-robot service-icon"></i>
+                <h3>ai & documents</h3>
                 <p>إنتاج مقاطع وثائقية وتصميم مجسمات وتحريك 3D.</p>
             </div>
         </div>
@@ -1311,7 +1219,7 @@
             });
         }
 
-        // 3. Category Filter (منطق التصفية الذكي)
+        // 3. Category Filter
         const filterBtns = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
